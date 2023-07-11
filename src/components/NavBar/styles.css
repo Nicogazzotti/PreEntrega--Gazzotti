@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lato:ital,wght@0,100;1,100&family=Rubik+Dirt&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+header {
+    top: 0;
+    left: 0;
+    position: sticky;
+    width: 100%;
+    height: 80px;
+    background-color:white;
+    box-shadow: 0 4px 25px -20px black;
+    z-index: 2;
+    
+}
+
+
+.todo_header {
+    height: 100%;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.menu {
+    padding-right: 20px;
+}
+.menu li {
+    display: inline;
+    margin: 0 20px;
+    
+}
+.menu li a {
+    font-family: "Rubik Dirt", cursive;
+    color: black;
+}
+
+.menu a:hover{
+    color:rgb(231, 37, 11);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu_desplegable {
+    visibility: hidden;
+    width: 80px;
+}
+
+.logo {
+    padding-left: 20px;
+    color: rgb(0, 132, 255);
+    font-size: 38px;
+    margin-right:20px;
+    font-weight: bold;
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.navbar {
+    min-width: 130px;
+    width: 600px;
+    margin-right: 20px;
+    padding: 0 10px;
+    outline: none;
+    
+    
+}
+.navbar input{
+    outline: none;
+    border-radius: 30px;
+    border:1px solid black;
+}
+
+
+
+
+
+@media screen and (max-width: 1700px) {
+    .cart{
+        margin-left: 20px;
+    }
+    .navbar{
+        margin-right: 10px;
+    }
+}    
+
+@media screen and (max-width: 1600px) {
+    .menu {
+        display: none;
+    }
+    .menu_desplegable {
+        visibility: visible;
+        margin-right: 150px;
+    }
+    .header_visible {
+        justify-content: initial;
+    }
+    .logo {
+        margin-right: 100px;
+    }
+    .cart{
+        margin-left: -100px;
+    }
+    
+}
+
+@media screen and (max-width: 800px) {
+
+    .logo{
+        margin-right: 15px;
+        font-size: 30px;
+    }
+    .navbar{
+        width: 250px;
+    }
+
+}
