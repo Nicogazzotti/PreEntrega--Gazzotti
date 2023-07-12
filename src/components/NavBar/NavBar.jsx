@@ -6,7 +6,7 @@ import Input from "./input";
 
 
 
-const NavBar= ({logo,products}) =>{
+const NavBar= ({logo}) =>{
     // const [search, setSearch]= useState('');
     // const [prodFiltered, setProdFiltered]=useState([]);
     // const [active,setActive]= useState(false); 

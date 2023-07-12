@@ -1,32 +1,5 @@
-.contenedor{
-    max-width:2300px;
-    margin: auto;
-    margin-top: 80px;
-}
-.prod_title {
-    max-width:2100px;
-    padding: 20px;
-    margin: auto;
-    margin-left:120px;
-    margin-bottom: 10px;
-    font-size: 3rem;
-    
-    /* margin:1rem 5rem; */
-}
-.noEncontrado{
-    width: 300px;
-    margin:auto;
-}
-.cont_prod{
-    
-    max-width:2100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 40px;
-    padding: 20px;
-    
-}
+
+
 
 
 .producto{
