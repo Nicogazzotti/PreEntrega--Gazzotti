@@ -1,9 +1,9 @@
 import "./styles.css"
 import React from "react"
 
-const Card= ({id,image,name,categoria,descripcion,precio,onShowDetails})=>{
+const Catalogo= ({id,image,name,categoria,descripcion,precio,onShowDetails})=>{
     return(
-        <div key={id} className="producto" onClick={() => onShowDetails(id)}>
+        <div className="producto" onClick={() => onShowDetails(id)}>
             <div className="img">
                 <img src={image} alt="Imagen" />
             </div>
@@ -20,4 +20,4 @@ const Card= ({id,image,name,categoria,descripcion,precio,onShowDetails})=>{
     )
 }
 
-export default Card;
+export default Catalogo;

@@ -1,18 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import './styles.css'
 import CartWidget from "../CartWidget/CartWidget";
+import Input from "./input";
 
 
 
-const NavBar= ({logo}) =>{
+
+const NavBar= ({logo,products}) =>{
+    // const [search, setSearch]= useState('');
+    // const [prodFiltered, setProdFiltered]=useState([]);
+    // const [active,setActive]= useState(false); 
+    
+    
+
+    // const searchFilter = (query) => {
+    //     let updateProductList= [{products}];
+        
+    //     console.log(updateProductList)
+        
+    //     updateProductList= updateProductList.filter((item)=>{
+    //         return item.name.toLowerCase().indexOf(query.toLowerCase()()) !== -1;
+    //     })
+    //     setProdFiltered(updateProductList);
+    // }
+    // const onChange= (event)=>{
+    //     const value= event.target.value;
+    //     setSearch(value);
+    //     searchFilter(value);
+    // }
+    // const onFocus= ()=>{
+    //     setActive(true);
+    // }
+    // const onBlur= () =>{
+    //     setActive(false);
+    // }
+    // const inputClass= `barra ${active ? 'active' : ''}`
+    
     return(
         <header className="todo_header">
             <a href="/" className="logo" >{logo}</a>
-            <div className="navbar"> 
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-            </div>
-
             
+            {/* <Input csdiv={inputClass} cs="form-control me-2"type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} /> */}
+
             <nav className="nav">
                 <ul className="menu">
                     <li><a href="/">Notebooks</a></li>

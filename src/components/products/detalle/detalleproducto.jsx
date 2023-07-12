@@ -1,7 +1,7 @@
 import "./styles.css"
 import React from "react"
 
-const Details= ({id,image,name,categoria,descripcion,precio})=>{
+const DetalleProducto= ({id,image,name,categoria,descripcion,precio})=>{
     return(
         <div className="productoDet" >
             <div className="imgDet">
@@ -22,4 +22,4 @@ const Details= ({id,image,name,categoria,descripcion,precio})=>{
     )
 }
 
-export default Details;
+export default DetalleProducto;
