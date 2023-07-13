@@ -20,6 +20,9 @@ function Home() {
   const [search, setSearch]= useState('');
   const [prodFiltered, setProdFiltered]=useState([]);
   const [active,setActive]= useState(false);
+  const {data:category}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
+  const [isFiltered, setIsFiltered]=useState(false);
+  const [filterBuscar, setFilterBuscar]=useState([]);
 
   const searchFilter = (query) => {
       let updateProductList= [...products];
@@ -47,23 +50,6 @@ function Home() {
     nav(`/products/${id}`)
   }
 
-
-
-
-
-
-
-  
-
-
-  // const urlCategory= `${API_URLS.CATEGORY.url}/${catId.catId}`
-    // console.log(urlCategory)
-
-  const {data:category}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
-
-  const [isFiltered, setIsFiltered]=useState(false);
-  
-  // const {catId} = useParams();
   
   const catFilter = (cat) => {
     const categoria=category[cat-1]
@@ -88,7 +74,7 @@ function Home() {
               {/* <ItemListContainer greeting="Bienvenidos a TecnoGlaz" /> */}
           <div className="cont_prod">
             {
-              isFiltered ?(prodFiltered.map((prod) =>(
+              isFiltered || search.length>0  ?(prodFiltered.map((prod) =>(
                 <Catalogo key={prod.id} {...prod} onShowDetails={onShowDetails}/>
                 ))
               ): (
