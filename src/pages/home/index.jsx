@@ -24,8 +24,7 @@ function Home() {
   const [isFiltered, setIsFiltered]=useState(false);
   const [filterBuscar, setFilterBuscar]=useState([]);
 
-  console.log(products)
-  console.log(category)
+  
 
   const searchFilter = (query) => {
       let updateProductList= [...products];
