@@ -10,5 +10,15 @@ export const API_URLS ={
                 'Content-Type' : 'application/json',
             }
         }
+    },
+    CATEGORY:{
+        url: `${BASE_URL}/category`, 
+        config: {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }
     }
+    
 } 

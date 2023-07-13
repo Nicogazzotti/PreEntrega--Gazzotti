@@ -83,12 +83,7 @@
     }
 }
 
-@media screen and (max-width: 2200px) {
-    .prod_title{
-        margin-left: 30px;
-    }
 
-}
 @media screen and (max-width: 2000px) {
     .cont_prod{
         grid-template-columns: repeat(4, 1fr);
@@ -117,8 +112,5 @@
         flex-direction: column;
         align-items: center;
     }
-    .prod_title{
-        width:300px;
-        margin:auto;
-    }
+
 }

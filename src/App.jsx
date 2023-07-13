@@ -6,15 +6,17 @@ import Home from './pages/home'
 import Detail from './pages/detail'
 
 
+
 function App() {
 
   return (
     <>
       <div>
-        <NavBar logo="TecnoGlaz"/>
+        {/* <NavBar logo="TecnoGlaz"/> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/products/:prodId' element={<Detail/>}/>
+          <Route path='/category/:catId' element={<Home/>}  />
         </Routes>
 
       </div>
