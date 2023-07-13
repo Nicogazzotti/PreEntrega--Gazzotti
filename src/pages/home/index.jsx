@@ -24,6 +24,9 @@ function Home() {
   const [isFiltered, setIsFiltered]=useState(false);
   const [filterBuscar, setFilterBuscar]=useState([]);
 
+  console.log(products)
+  console.log(category)
+
   const searchFilter = (query) => {
       let updateProductList= [...products];
       updateProductList= updateProductList.filter((item)=>{
@@ -53,12 +56,10 @@ function Home() {
   
   const catFilter = (cat) => {
     const categoria=category[cat-1]
-    console.log(cat)
     setIsFiltered(true)
     const categoryList= products.filter((item)=> item.categoria === categoria.categoria);
     setProdFiltered(categoryList)
-    console.log(prodFiltered)
-    console.log(isFiltered)
+  
     }
   return (
     <>

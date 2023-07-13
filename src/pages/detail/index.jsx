@@ -8,7 +8,6 @@ import NavBar from '../../components/NavBar/NavBar';
 
 function Detail() { 
     const {prodId} = useParams();
-    console.log(prodId)
     const nav=useNavigate()
     const urlDetail= `${API_URLS.PRODUCTS.url}/${prodId}`
     const {data, loading, error}= useFetch(urlDetail,API_URLS.PRODUCTS.config);
