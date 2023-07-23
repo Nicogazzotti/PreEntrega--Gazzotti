@@ -15,14 +15,12 @@ import { useContext } from 'react'
 
 function Home() {
   const nav= useNavigate();
-  const {data: products, loading, error}= useFetch(API_URLS.PRODUCTS.url,API_URLS.PRODUCTS.config);
   const [search, setSearch]= useState('');
   const [prodFiltered, setProdFiltered]=useState([]);
   const [active,setActive]= useState(false);
-  const {data:categorias}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
   const [isFiltered, setIsFiltered]=useState(false);
-  
-  
+  const [catSeleccionada,setCatSeleccionada]= useState('All')
+  const {data: products, loading, error}= useFetch(API_URLS.PRODUCTS.url,API_URLS.PRODUCTS.config);
 
 
   const {setProducts, products: productsContext,agregarCarrito, cart} =useContext(CartContext)
@@ -36,7 +34,10 @@ function Home() {
   console.log({productsContext, cart})
 
   const searchFilter = (query) => {
-
+    if(catSeleccionada!== 'All' && query.length=== 0  ){
+      catFilter(catSeleccionada)
+      return;
+    }
     let updateProductList= query.length===0  ? [...products]: [...prodFiltered];
     updateProductList= updateProductList.filter((item)=>{
         return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
@@ -63,14 +64,16 @@ function Home() {
   }
 
   
-  const catFilter = (catId) => {
-    const categoria=categorias[catId-1]
+  const catFilter = (catName) => {
     setIsFiltered(true)
-    const categoryList= products.filter((item)=> item.categoria === categoria.categoria);
+    const categoryList= products.filter((prod)=> prod.categoria === catName);
     setProdFiltered(categoryList)
+    setCatSeleccionada(catName)
   }
   const catFilterAll= ()=>{
     setIsFiltered(false)
+    setCatSeleccionada('All')
+
   }
 
 

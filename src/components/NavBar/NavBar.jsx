@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import './styles.css'
 import CartWidget from "../CartWidget/CartWidget";
-import Input from "./input";
 import { Link } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import { API_URLS } from "../../constants";
-import Catalogo from "../products/catalogo/catalogo";
+
 
 
 
 
 const NavBar= ({logo,fCat,fAll}) => {
     const {data: category, loading, error}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
-    const {data:products}= useFetch(API_URLS.PRODUCTS.url,API_URLS.PRODUCTS.config);
     
     
     return(
@@ -28,7 +26,7 @@ const NavBar= ({logo,fCat,fAll}) => {
                         {error && <h2>{error}</h2>}
                         {
                             category.map((cat)=>(
-                                <li key={cat.id} onClick={() => fCat(cat.id)} ><Link to={`/category/${cat.id}`} >{cat.categoria}</Link> </li>
+                                <li key={cat.id} onClick={() => fCat(cat.categoria)} ><Link to={`/category/${cat.id}`} >{cat.categoria}</Link> </li>
                             ))
                         }
                         <li  onClick={fAll}><Link to={`/category/All`} >All</Link></li>
@@ -42,7 +40,7 @@ const NavBar= ({logo,fCat,fAll}) => {
                         {error && <h2>{error}</h2>}
                         {
                             category.map((cat)=>(
-                                <li key={cat.id} onClick={() => fCat(cat.id)} className="dropdown-item"> <Link to={`/category/${cat.id}`} >{cat.categoria}</Link></li>
+                                <li key={cat.id} onClick={() => fCat(cat.categoria)} className="dropdown-item"> <Link to={`/category/${cat.id}`} >{cat.categoria}</Link></li>
                             ))
                         }
                         <li  className="dropdown-item" onClick={fAll}><Link to={`/category/All`} >All</Link></li>
