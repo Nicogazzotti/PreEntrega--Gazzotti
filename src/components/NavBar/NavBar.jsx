@@ -10,25 +10,15 @@ import Catalogo from "../products/catalogo/catalogo";
 
 
 
-const NavBar= ({logo,fn}) => {
+const NavBar= ({logo,fCat,fAll}) => {
     const {data: category, loading, error}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
     const {data:products}= useFetch(API_URLS.PRODUCTS.url,API_URLS.PRODUCTS.config);
-    const [catFiltered, setCatFiltered]=useState([]);
-    const [isFiltered, setIsFiltered]=useState(false);
-
-    const catFilter = (cat) => {
-        setIsFiltered(true)
-        const categoryList= products.filter((item)=> item.categoria === cat);
-        setCatFiltered(categoryList)
-        console.log(catFiltered)
-        console.log(isFiltered)
-    }
-    // onClick={()=>catFilter(cat.categoria)}
+    
     
     return(
         <>
             <header className="todo_header">
-                <a href="/" className="logo" >{logo}</a>
+                <Link to='/'  className="logo"> {logo} </Link>
                 
                 {/* <Input csdiv={inputClass} cs="form-control me-2"type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} /> */}
 
@@ -38,9 +28,10 @@ const NavBar= ({logo,fn}) => {
                         {error && <h2>{error}</h2>}
                         {
                             category.map((cat)=>(
-                                <li key={cat.id} onClick={() => fn(cat.id)} ><Link to={`/category/${cat.id}`} >{cat.categoria}</Link> </li>
+                                <li key={cat.id} onClick={() => fCat(cat.id)} ><Link to={`/category/${cat.id}`} >{cat.categoria}</Link> </li>
                             ))
                         }
+                        <li  onClick={fAll}><Link to={`/category/All`} >All</Link></li>
                     </ul>
                 </nav>
                 
@@ -51,26 +42,17 @@ const NavBar= ({logo,fn}) => {
                         {error && <h2>{error}</h2>}
                         {
                             category.map((cat)=>(
-                                <li key={cat.id} onClick={() => fn(cat.id)} className="dropdown-item"> <Link to={`/category/${cat.id}`} >{cat.categoria}</Link></li>
+                                <li key={cat.id} onClick={() => fCat(cat.id)} className="dropdown-item"> <Link to={`/category/${cat.id}`} >{cat.categoria}</Link></li>
                             ))
                         }
+                        <li  className="dropdown-item" onClick={fAll}><Link to={`/category/All`} >All</Link></li>
                     </ul>
                 </nav>
 
-                <CartWidget text="3"/>
+                <CartWidget/>
 
             </header> 
-            <div>
-
-            {
-                isFiltered ===true ?(
-                    catFiltered.map((prod)=>{
-                        <Catalogo key={prod.id} {...catFiltered} />
-                    }),
-                    console.log("hola")  
-                ):(null)
-            }
-            </div>
+            
         </>
     );
 

@@ -21,7 +21,7 @@ function Detail() {
             {loading && <h2>Loading...</h2>}
             {error && <h3>Hubo un error</h3>}
             <DetalleProducto  {...data}/>
-            {history.length>2 ? (<div onClick={()=>nav(-1)} className='contBack'>
+            {hist.length>2 ? (<div onClick={()=>nav(-1)} className='contBack'>
                 <button className='back' >Back</button>
             </div>): null}
         </>

@@ -11,4 +11,7 @@
     color:black
 }
 
+.cart:hover{
+    cursor: pointer;
+}
 

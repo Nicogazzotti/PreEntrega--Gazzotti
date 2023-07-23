@@ -33,7 +33,7 @@ header {
     padding: 10px;
     align-items: center;
     display: flex;
-    display: flex;
+    
     justify-content: space-between;
 }
 
@@ -144,7 +144,7 @@ header {
     }
     .menu_desplegable {
         visibility: visible;
-        margin-right: 300px;
+        margin-right: 20px;
         width:150px;
         
         

@@ -101,7 +101,12 @@
 }
 .prod_ActionDet button:hover {
     animation: boton 2s infinite;
-    }
+}
+.stockDet{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
 
 @keyframes boton {
     0% {

@@ -10,28 +10,38 @@ import DetalleProducto from '../../components/products/detalle/detalleproducto'
 import Input from '../../components/NavBar/input'
 import { useNavigate, useParams } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
-
-
+import { CartContext } from '../../context/cart-context'
+import { useContext } from 'react'
 
 function Home() {
   const nav= useNavigate();
-  const [detail, setDetail]= useState(null);
   const {data: products, loading, error}= useFetch(API_URLS.PRODUCTS.url,API_URLS.PRODUCTS.config);
   const [search, setSearch]= useState('');
   const [prodFiltered, setProdFiltered]=useState([]);
   const [active,setActive]= useState(false);
-  const {data:category}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
+  const {data:categorias}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
   const [isFiltered, setIsFiltered]=useState(false);
-  const [filterBuscar, setFilterBuscar]=useState([]);
-
+  
   
 
+
+  const {setProducts, products: productsContext,agregarCarrito, cart} =useContext(CartContext)
+  
+  useEffect(()=>{
+    if(products?.length>0){
+      setProducts(products)
+    }
+  },[products,setProducts])
+
+  console.log({productsContext, cart})
+
   const searchFilter = (query) => {
-      let updateProductList= [...products];
-      updateProductList= updateProductList.filter((item)=>{
-          return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-      })
-      setProdFiltered(updateProductList);
+
+    let updateProductList= query.length===0  ? [...products]: [...prodFiltered];
+    updateProductList= updateProductList.filter((item)=>{
+        return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+    })
+    setProdFiltered(updateProductList);
 
   }
   const onChange= (event)=>{
@@ -53,33 +63,45 @@ function Home() {
   }
 
   
-  const catFilter = (cat) => {
-    const categoria=category[cat-1]
+  const catFilter = (catId) => {
+    const categoria=categorias[catId-1]
     setIsFiltered(true)
     const categoryList= products.filter((item)=> item.categoria === categoria.categoria);
     setProdFiltered(categoryList)
-  
-    }
+  }
+  const catFilterAll= ()=>{
+    setIsFiltered(false)
+  }
+
+
   return (
     <>
+    
       <div>
-        <NavBar logo="TecnoGlaz" fn={catFilter}/>
+        <NavBar logo="TecnoGlaz" fCat={catFilter} fAll={catFilterAll} />
+
+        
         <Input csdiv={inputClass} cs="form-control me-2" type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} />
+        
+        
+          
         <div className="contenedor">
+
+
           {loading && <h2>Loading...</h2>}
           {error && <h3>{error}</h3>}
           {search.length>0 && prodFiltered.length===0 && <h3 className='noEncontrado'>Producto no encontrado</h3> }
 
           <h1 className="prod_title">Products</h1>
-              {/* <ItemListContainer greeting="Bienvenidos a TecnoGlaz" /> */}
+      
           <div className="cont_prod">
             {
               isFiltered || search.length>0  ?(prodFiltered.map((prod) =>(
-                <Catalogo key={prod.id} {...prod} onShowDetails={onShowDetails}/>
+                <Catalogo key={prod.id} {...prod} onShowDetails={onShowDetails} agregarCarrito={agregarCarrito}/>
                 ))
               ): (
               products.map((prod)=>(
-                <Catalogo key={prod.id} {...prod} onShowDetails={onShowDetails}/>
+                <Catalogo key={prod.id} {...prod} onShowDetails={onShowDetails} agregarCarrito={agregarCarrito} />
               ))
               )
             }

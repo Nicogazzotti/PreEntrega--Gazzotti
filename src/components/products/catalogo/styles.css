@@ -7,9 +7,7 @@
     margin:30px;
     background-color: #f7f7f7;
     box-shadow: 0 0.1rem 0.3rem rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    
     
 }
 .producto:hover{
@@ -17,6 +15,13 @@
     transition: all 0.3s ease-in-out;
     scale:1.07;
 }
+
+.tarjDatos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .producto img{
     width:300px;
     height:200px;
@@ -43,9 +48,15 @@
     font-size: 0.9rem;
     
 }
-.producto h4{
+.prodPrecio{
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+
+.prod_Action{
+    display: flex;
+    justify-content: center;
 }
 
 .producto button{
@@ -59,14 +70,21 @@
     border:none;
     cursor:pointer;
     border-radius:5px;
+    transition: all 0.3s ease-in-out;
 }
 .producto button:hover{
     opacity:0.9;
-
 }
 .cont_prod button:hover {
     animation: boton 2s infinite;
-    }
+}
+.stock{
+    width: 70px;
+    margin:auto;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
 
 @keyframes boton {
     0% {
