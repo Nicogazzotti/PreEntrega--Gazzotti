@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import './styles.css'
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
@@ -11,7 +10,6 @@ import { API_URLS } from "../../constants";
 
 const NavBar= ({logo,fCat,fAll}) => {
     const {data: category, loading, error}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
-    
     
     return(
         <>
@@ -32,12 +30,11 @@ const NavBar= ({logo,fCat,fAll}) => {
                         <li  onClick={fAll}><Link to={`/category/All`} >All</Link></li>
                     </ul>
                 </nav>
-                
 
                 <nav className="menu_desplegable btn-group" role="group">
                     <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
                     <ul className=" category dropdown-menu">
-                        {error && <h2>{error}</h2>}
+                        {error ? <h2>{error}</h2>:null}
                         {
                             category.map((cat)=>(
                                 <li key={cat.id} onClick={() => fCat(cat.categoria)} className="dropdown-item"> <Link to={`/category/${cat.id}`} >{cat.categoria}</Link></li>

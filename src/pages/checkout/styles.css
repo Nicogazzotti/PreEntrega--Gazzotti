@@ -1,0 +1,104 @@
+.checkoutCont{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 800px;
+    margin:auto;
+}
+
+.chechoutTitulo{
+
+}
+.checkoutForm{
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+}
+.checkoutFormCont{
+    padding: 1rem 0;
+}
+.checkoutFormInput{
+    padding: 1rem 0;
+}
+
+
+
+.barraCheckout{
+    position: relative;
+}
+
+.barraCheckout input{
+    width:100%;
+    height: 50px;
+    padding:0 1rem;
+    position: relative;
+    border:none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: normal;
+    color: rgb(0, 0, 0);
+    outline: none;
+    box-shadow: 0px 2px 20px 0px rgb(126, 126, 126);
+}
+
+.barraCheckout input ::-webkit-input-placeholder{
+    color: rgba(214, 34, 34, 0.8) ;
+}
+.barraCheckout input::-moz-placeholder{
+    color: rgba(255,255,255,0.8) ;
+}
+.barraCheckout input:-ms-input-placeholder{
+    color: rgba(255,255,255,0.8) ;
+}
+.barraCheckout input + label{
+    position: absolute;
+    top: 24px;
+    left:15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #242424;
+    line-height: 1.3rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0,1s all ease-in-out;
+}
+.barraCheckout:hover{
+    box-shadow: 0px 2px 20px 0px black;
+}
+.barraCheckout.active{
+    box-shadow: 0px 2px 20px 0px rgb(126, 126, 126);
+}
+.barraCheckout.active input{
+    padding:1.2rem 1rem 0.2rem 1rem;
+}
+.barraCheckout.active input + label{
+    top: 0.2rem;
+    opacity: 1;
+}
+
+
+/* .barra {
+    min-width: 130px;
+    width: 600px;
+    margin-right: 20px;
+    padding: 0 10px; 
+    margin:auto; 
+    margin-top:50px;
+}
+.barra input:hover{
+    box-shadow: 0px 2px 20px 0px black;
+    transition: all 0.3s ease-in-out;
+}
+.barra.active input{
+    box-shadow: 0px 2px 20px 0px rgb(126, 126, 126);
+    border:none;
+    padding: 0.5rem 1rem 0.2rem 1rem;
+}
+.barra input{
+    outline: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 400;   
+    box-shadow: 0px 2px 5px 0px black;
+} */

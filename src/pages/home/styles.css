@@ -51,11 +51,11 @@
 
 @media screen and (max-width: 790px) {
     
-    .cont_prod{
+    /* .cont_prod{
         display:flex;
         flex-direction: column;
         align-items: center;
-    }
+    } */
     .prod_title{
         width:300px;
         margin:auto;

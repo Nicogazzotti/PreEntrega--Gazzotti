@@ -23,7 +23,7 @@ export const CartProvider= ({children})=>{
 
 
     const agregarCarrito= (id)=>{
-        console.log(id)
+    
         const prod= products.find((prod)=> prod.id=== id)
         if (cart?.length===0){
             setCart([{...prod, cantidad:1}])

@@ -1,7 +1,7 @@
 import "./styles.css"
 import React from "react"
 
-const DetalleProducto= ({id,image,name,categoria,descripcion,precio,stock})=>{
+const DetalleProducto= ({id,image,name,categoria,descripcion,precio,stock,agregarCarrito})=>{
     return(
         <div className="productoDet" >
             <div className="imgDet">
@@ -14,7 +14,7 @@ const DetalleProducto= ({id,image,name,categoria,descripcion,precio,stock})=>{
                 <p className="prod_descDet">{descripcion}</p>
                 <h4>${precio}</h4>
                 <div className="prod_ActionDet">
-                    <button  className="prod_buttonDet">Añadir</button>
+                    <button  onClick={()=> agregarCarrito(id)} className="prod_buttonDet">Añadir</button>
                 </div>
                 <p className="stockDet">Stock: {stock}</p>
             </div>

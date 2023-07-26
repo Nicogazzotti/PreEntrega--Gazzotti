@@ -1,7 +1,8 @@
+/* eslint-disable react/display-name */
 import "./styles.css"
-import React from "react"
+import React, { memo } from "react"
 
-const Catalogo= ({id,image,name,categoria,descripcion,precio,stock,onShowDetails,agregarCarrito})=>{
+const Catalogo= memo(({id,image,name,categoria,descripcion,precio,stock,onShowDetails,agregarCarrito})=>{
     return(
         <div className="producto" >
             <div className="tarjDatos" onClick={() => onShowDetails(id)}>
@@ -15,14 +16,17 @@ const Catalogo= ({id,image,name,categoria,descripcion,precio,stock,onShowDetails
                 <h4 className="prodPrecio">${precio}</h4>
 
             </div>
-            <div className="prod_Action">
-                <button onClick={()=> agregarCarrito(id)} className="prod_button">Añadir</button>
-                
+            <div className="tarjButStock">
+                <div className="prod_Action">
+                    <button onClick={()=> agregarCarrito(id)} className="prod_button">Añadir</button>
+                    
+                </div>
+                <p className="stock">Stock: {stock}</p>
+
             </div>
-            <p className="stock">Stock: {stock}</p>
         </div>
     
     )
-}
+})
 
 export default Catalogo;

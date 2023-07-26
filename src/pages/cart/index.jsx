@@ -2,10 +2,15 @@ import { useContext } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import './styles.css'
 import { CartContext } from '../../context/cart-context'
+import { useNavigate } from 'react-router-dom'
 
 
 function Cart()  {
     const {cart,quitarCarrito,agregarCarrito,restarCarrito,totalCart,totalProds}= useContext(CartContext)
+    const nav= useNavigate()
+    const goCheckout=()=>{
+        nav('/checkout')
+    }
     return(
         <>
 
@@ -49,7 +54,7 @@ function Cart()  {
                             <p className='cartTotal'>Precio Total: ${totalCart}</p>
                             <p className='cartProdCant'>Productos: {totalProds()}</p>
                         </div>
-                        <button className='cartButCheckout'>Checkout</button>
+                        <button onClick={goCheckout} className='cartButCheckout'>Checkout</button>
                     </div>
                 )
                 }

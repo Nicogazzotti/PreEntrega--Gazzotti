@@ -1,14 +1,11 @@
 import './styles.css'
-import ItemListContainer from '../../components/ItemListContainer/ItemListContainer'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import CartWidget from '../../components/CartWidget/CartWidget'
 import { useFetch } from '../../hooks/useFetch'
 import { API_URLS } from '../../constants/index'
 import Catalogo from '../../components/products/catalogo/catalogo'
-import DetalleProducto from '../../components/products/detalle/detalleproducto'
 import Input from '../../components/NavBar/input'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import { CartContext } from '../../context/cart-context'
 import { useContext } from 'react'
@@ -30,8 +27,6 @@ function Home() {
       setProducts(products)
     }
   },[products,setProducts])
-
-  console.log({productsContext, cart})
 
   const searchFilter = (query) => {
     if(catSeleccionada!== 'All' && query.length=== 0  ){
@@ -89,11 +84,9 @@ function Home() {
         
           
         <div className="contenedor">
-
-
-          {loading && <h2>Loading...</h2>}
-          {error && <h3>{error}</h3>}
-          {search.length>0 && prodFiltered.length===0 && <h3 className='noEncontrado'>Producto no encontrado</h3> }
+          {loading ? <h2>Loading...</h2>: null}
+          {error ? <h3>{error}</h3> : null }
+          {search.length>0 && prodFiltered.length===0 ? <h3 className='noEncontrado'>Producto no encontrado</h3>: null }
 
           <h1 className="prod_title">Products</h1>
       
