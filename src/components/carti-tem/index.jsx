@@ -1,40 +1,9 @@
-import { useContext } from 'react'
-import NavBar from '../../components/NavBar/NavBar'
 import './styles.css'
-import { CartContext } from '../../context/cart-context'
-import { useNavigate } from 'react-router-dom'
-import { firebaseServices } from '../../services/firebase'
 
-
-function Cart()  {
-    const {cart,quitarCarrito,agregarCarrito,restarCarrito,totalCart,totalProds, }= useContext(CartContext)
-    const nav= useNavigate()
-    const onCreateCart = async ()=> {
-        const newCart= {
-            buyer: {
-                id:1
-            },
-            items:cart,
-            createdAt  : new Date(),
-            total: totalCart,
-            status: 'pending',      
-        }
-        const cartId= await firebaseServices.createCart(newCart)
-
-        return cartId
-    }
-    const goCheckout=async ()=>{
-        const cartId= await onCreateCart()
-        nav('/checkout', {state: {cartId: cartId.id}})
-        console.log(cartId)
-    }
-    
+const CartItem= (quitarCarrito,agregarCarrito,restarCarrito,totalCart,totalProds,goCheckout,cart)=>{
     return(
-        <>
 
-            <NavBar/>
-            
-            <div className='carrito'> 
+    <div className='carrito'> 
                 <h2 className='cartTitulo'>Cart</h2>
                 {cart.length===0 && <h2 className='carritoVacio'>Carrito vacio</h2>}
                 {
@@ -77,8 +46,6 @@ function Cart()  {
                 )
                 }
             </div>
-        </>
     )
 }
-
-export default Cart
+export default CartItem

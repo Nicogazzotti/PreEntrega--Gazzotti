@@ -18,7 +18,7 @@
     padding: 1rem 0;
 }
 .checkoutFormInput{
-    padding: 1rem 0;
+    padding: 1.2rem 0;
 }
 
 
@@ -37,7 +37,7 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: normal;
-    color: rgb(0, 0, 0);
+    color: rgb(71, 68, 68);
     outline: none;
     box-shadow: 0px 2px 20px 0px rgb(126, 126, 126);
 }
@@ -53,30 +53,62 @@
 }
 .barraCheckout input + label{
     position: absolute;
-    top: 24px;
+    top: 20px;
     left:15px;
     font-size: 1rem;
-    font-weight: 600;
-    color: #242424;
+    font-weight: bold;
+    color: #0a0a0a;
     line-height: 1.3rem;
     opacity: 0;
     pointer-events: none;
     transition: 0,1s all ease-in-out;
 }
-.barraCheckout:hover{
+.barraCheckout input:hover{
     box-shadow: 0px 2px 20px 0px black;
 }
-.barraCheckout.active{
+/* .barraCheckout.active{
     box-shadow: 0px 2px 20px 0px rgb(126, 126, 126);
-}
+} */
 .barraCheckout.active input{
     padding:1.2rem 1rem 0.2rem 1rem;
+    box-shadow: 0px 2px 20px 0px rgb(126, 126, 126);
 }
 .barraCheckout.active input + label{
     top: 0.2rem;
     opacity: 1;
 }
 
+.error{
+    padding: 1rem;
+    position: absolute;
+    left:0;
+    bottom:-2.6rem;
+    color:rgb(252, 104, 104)
+}
+
+.butCheckout{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px 40px;
+    font-size: 20px;
+    font-weight:600;
+    color:white;
+    background: rgb(0, 132, 255);
+    border:none;
+    cursor:pointer;
+    border-radius:5px;  
+    transition: all 0.3s ease-in-out;
+}
+.butCheckout:hover{
+    opacity:0.8;
+}
+.butCheckout:disabled{
+    cursor: not-allowed;
+}
+.butCheckout:disabled:hover{
+    background-color: rgb(131, 131, 133);
+    opacity:1;
+}
 
 /* .barra {
     min-width: 130px;

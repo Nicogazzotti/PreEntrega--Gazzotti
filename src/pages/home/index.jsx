@@ -51,7 +51,7 @@ function Home() {
   const onBlur= () =>{
       setActive(false);
   }
-  const inputClass= `barra ${active ? 'active' : ''}`
+  
 
 
   const onShowDetails= (id)=>{
@@ -76,10 +76,10 @@ function Home() {
     <>
     
       <div>
-        <NavBar logo="TecnoGlaz" fCat={catFilter} fAll={catFilterAll} />
+        <NavBar fCat={catFilter} fAll={catFilterAll} />
 
         
-        <Input csdiv={inputClass} cs="form-control me-2" type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} />
+        <Input csdiv="barra" active={active} cs="form-control me-2" type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} />
         
         
           

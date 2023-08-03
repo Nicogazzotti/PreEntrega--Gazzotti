@@ -18,10 +18,9 @@ function Detail() {
     const {data, loading, error}= useFetch(urlDetail,API_URLS.PRODUCTS.config);
     
     const hist= window.history;
-    
     return(
         <>  
-            <NavBar logo="TecnoGlaz" />
+            <NavBar/>
             <h2 className='prod_titleDet'>Detalle Producto</h2>
             {loading ? <h2>Loading...</h2>: null}
             {error ? <h3>Hubo un error</h3>:null}

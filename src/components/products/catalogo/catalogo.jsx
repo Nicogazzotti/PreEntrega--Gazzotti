@@ -13,10 +13,11 @@ const Catalogo= memo(({id,image,name,categoria,descripcion,precio,stock,onShowDe
                 <p className="cont_cat">{categoria}</p>
                 
                 <p className="prod_desc">{descripcion}</p>
-                <h4 className="prodPrecio">${precio}</h4>
+                
 
             </div>
             <div className="tarjButStock">
+                <h4 className="prodPrecio">${precio}</h4>
                 <div className="prod_Action">
                     <button onClick={()=> agregarCarrito(id)} className="prod_button">Añadir</button>
                     

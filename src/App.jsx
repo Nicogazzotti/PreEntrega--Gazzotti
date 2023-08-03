@@ -7,6 +7,7 @@ import Detail from './pages/detail'
 import { CartProvider } from './context/cart-context'
 import Cart from './pages/cart'
 import Checkout from './pages/checkout'
+import OrderSuccess from './pages/order-success'
 
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/category/:catId' element={<Home/>}  />
             <Route path='/cart' element={<Cart/>} />
             <Route path='/checkout' element={<Checkout/>}/>
+            <Route path='/order-success' element={<OrderSuccess/>} />
           </Routes>
 
       </CartProvider>

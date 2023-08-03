@@ -8,13 +8,13 @@ import { API_URLS } from "../../constants";
 
 
 
-const NavBar= ({logo,fCat,fAll}) => {
+const NavBar= ({fCat,fAll}) => {
     const {data: category, loading, error}= useFetch(API_URLS.CATEGORY.url,API_URLS.CATEGORY.config);
     
     return(
         <>
             <header className="todo_header">
-                <Link to='/'  className="logo"> {logo} </Link>
+                <Link to='/'  className="logo"> TecnoGlaz </Link>
                 
                 {/* <Input csdiv={inputClass} cs="form-control me-2"type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} /> */}
 
