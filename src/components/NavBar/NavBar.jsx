@@ -3,6 +3,7 @@ import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 import { API_URLS } from "../../constants";
+import Categoria from '../categorias';
 
 
 
@@ -16,7 +17,6 @@ const NavBar= ({fCat,fAll}) => {
             <header className="todo_header">
                 <Link to='/'  className="logo"> TecnoGlaz </Link>
                 
-                {/* <Input csdiv={inputClass} cs="form-control me-2"type="search" ph="Search" onChange={onChange} onFocus={onFocus} onBlur={onBlur} /> */}
 
                 <nav className="nav">
                     
@@ -24,23 +24,25 @@ const NavBar= ({fCat,fAll}) => {
                         {error && <h2>{error}</h2>}
                         {
                             category.map((cat)=>(
-                                <li key={cat.id} onClick={() => fCat(cat.categoria)} ><Link to={`/category/${cat.id}`} >{cat.categoria}</Link> </li>
+                                <Categoria key={cat.id} onClick={() => fCat(cat.categoria)} id={cat.id} name={cat.categoria} />
                             ))
                         }
-                        <li  onClick={fAll}><Link to={`/category/All`} >All</Link></li>
+                        <Categoria onClick={fAll} id='All' name='All'  />
+                        
                     </ul>
                 </nav>
 
-                <nav className="menu_desplegable btn-group" role="group">
+                <nav className="menuDesplegable btn-group" role="group">
                     <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
-                    <ul className=" category dropdown-menu">
+                    <ul className=" categoryDesplegable dropdown-menu">
                         {error ? <h2>{error}</h2>:null}
                         {
                             category.map((cat)=>(
-                                <li key={cat.id} onClick={() => fCat(cat.categoria)} className="dropdown-item"> <Link to={`/category/${cat.id}`} >{cat.categoria}</Link></li>
+                                <Categoria key={cat.id} className='dropdownn-item' onClick={() => fCat(cat.categoria)} id={cat.id} name={cat.categoria} />
                             ))
                         }
-                        <li  className="dropdown-item" onClick={fAll}><Link to={`/category/All`} >All</Link></li>
+                        
+                        <Categoria className="catAll dropdown-item" onClick={fAll} id='All' name='All'  />
                     </ul>
                 </nav>
 

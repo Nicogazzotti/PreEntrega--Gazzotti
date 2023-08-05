@@ -9,8 +9,12 @@ const OrderSuccess= ()=>{
     return(
         <>
             <NavBar/>
-            <div>
-                <h1>Orden realizada con exito</h1>
+            <div className='orderSuccess'> 
+                <div className='exito'>
+                    <h1>Orden realizada con exito!</h1>
+                    <i className="bi bi-check check"></i>
+                </div>
+                <h2>Gracias por confiar en nosotros.</h2>
                 <p>Order Id: {orderId}</p>
             </div>
         </>

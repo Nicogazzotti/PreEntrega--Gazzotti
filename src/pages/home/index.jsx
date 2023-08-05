@@ -38,7 +38,6 @@ function Home() {
         return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     })
     setProdFiltered(updateProductList);
-
   }
   const onChange= (event)=>{
       const value= event.target.value;
@@ -58,7 +57,6 @@ function Home() {
     nav(`/products/${id}`)
   }
 
-  
   const catFilter = (catName) => {
     setIsFiltered(true)
     const categoryList= products.filter((prod)=> prod.categoria === catName);
